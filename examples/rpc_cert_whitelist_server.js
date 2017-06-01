@@ -84,6 +84,8 @@ function isAllowedToPerformAction (action, fingerprint) {
   return false
 }
 
+// request handler which checks if the client is allowed to perform the
+// current action. uses a whitelist and certificate fingerprints
 service.on('request', (rid, key, payload, handler, cert) => {
   if (isAllowedToPerformAction(payload.action, cert.fingerprint)) {
     handler.reply(null, payload.action + ' action is allowed for this client')
