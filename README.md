@@ -22,7 +22,8 @@ PeerRPCServer
 This RPC Server example announces a service called
 `rpc_whitelist_service` on the overlay network. When a client tries to
 connect, we check on the serverside if the certificate fingerprint
-matches the list of clients that we have whitelisted for connections.
+matches the list of clients that we have whitelisted for connections,
+using [the verifyClient callback](https://github.com/websockets/ws/blob/62cd03ea3705123136c20eedac1b57559d8ea542/doc/ws.md#new-websocketserveroptions-callback).
 
 In case of a matching fingerprint, we establish the Websocket
 connection.
