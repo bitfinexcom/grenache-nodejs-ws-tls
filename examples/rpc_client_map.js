@@ -4,12 +4,11 @@
 
 'use strict'
 
-const Base = require('grenache-nodejs-base')
-const Peer = require('../').PeerRPCClient
+const { PeerRPCClient, Link } = require('../')
 const fs = require('fs')
 const path = require('path')
 
-const link = new Base.Link({
+const link = new Link({
   grape: 'ws://127.0.0.1:30001'
 })
 
@@ -22,7 +21,7 @@ const secure = {
   rejectUnauthorized: false // take care, can be dangerous in production!
 }
 
-const peer = new Peer(
+const peer = new PeerRPCClient(
   link,
   { secure: secure }
 )

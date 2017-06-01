@@ -4,13 +4,11 @@
 
 'use strict'
 
-const Base = require('grenache-nodejs-base')
-const Peer = require('../').PeerRPCServer
-const _ = require('lodash')
+const { PeerRPCServer, Link } = require('../')
 const fs = require('fs')
 const path = require('path')
 
-const link = new Base.Link({
+const link = new Link({
   grape: 'ws://127.0.0.1:30001'
 })
 link.start()
@@ -38,20 +36,20 @@ const opts = {
     }
   }
 }
-const peer = new Peer(
+const peer = new PeerRPCServer(
   link,
   opts
 )
 peer.init()
 
 const service = peer.transport('server')
-service.listen(_.random(1000) + 1024)
+service.listen(1337)
 
 setInterval(function () {
   link.announce('rpc_test', service.port, {})
 }, 1000)
 
 service.on('request', (rid, key, payload, handler, cert) => {
-  console.log(cert.fingerprint)
+  console.log('client cert fingerprint:', cert.fingerprint)
   handler.reply(null, 'world')
 })
