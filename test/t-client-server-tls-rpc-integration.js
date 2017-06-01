@@ -8,8 +8,7 @@ const path = require('path')
 const fs = require('fs')
 
 const parallel = require('async/parallel')
-const Base = require('grenache-nodejs-base')
-const Peer = require('./../lib/PeerRPCClient')
+const { PeerRPCClient, Link } = require('./../')
 
 const secure = {
   key: fs.readFileSync(path.join(__dirname, 'fixtures', 'client1-key.pem')),
@@ -56,12 +55,12 @@ describe('RPC tls integration, valid fingerprint', () => {
   })
 
   it('messages with the rpc worker', (done) => {
-    const link = new Base.Link({
+    const link = new Link({
       grape: 'ws://127.0.0.1:30001'
     })
     link.start()
 
-    const peer = new Peer(link, { secure: secure })
+    const peer = new PeerRPCClient(link, { secure: secure })
     peer.init()
 
     const reqs = 5
@@ -124,12 +123,12 @@ describe('RPC tls integration, invalid fingerprint', () => {
   })
 
   it('messages with the rpc worker', (done) => {
-    const link = new Base.Link({
+    const link = new Link({
       grape: 'ws://127.0.0.1:30001'
     })
     link.start()
 
-    const peer = new Peer(link, { secure: secure })
+    const peer = new PeerRPCClient(link, { secure: secure })
     peer.init()
 
     const reqs = 5

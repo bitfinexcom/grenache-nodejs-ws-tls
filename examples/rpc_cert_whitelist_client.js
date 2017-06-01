@@ -28,12 +28,13 @@ const peer = new PeerRPCClient(
 
 peer.init()
 
-const reqs = 10
+link.on('connect', () => {
+  peer.request('rpc_whitelist_service', { action: 'ping' }, { timeout: 10000 }, (err, data) => {
+    console.log(err, data) // logs: null 'ping action is allowed for this client'
+  })
 
-setTimeout(() => {
-  for (let i = 0; i < reqs; i++) {
-    peer.map('rpc_test', 'hello', { timeout: 10000 }, (err, data) => {
-      console.log(err, data)
-    })
-  }
-}, 2000)
+  // errors with forbidden error
+  peer.request('rpc_whitelist_service', { action: 'deleteHarddisk' }, { timeout: 10000 }, (err, data) => {
+    console.log(err, data) // logs: Error: forbidden
+  })
+})

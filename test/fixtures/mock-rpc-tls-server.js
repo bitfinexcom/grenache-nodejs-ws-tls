@@ -3,8 +3,7 @@
 
 'use strict'
 
-const Base = require('grenache-nodejs-base')
-const Peer = require('../../').PeerRPCServer
+const { PeerRPCServer, Link } = require('../../')
 const _ = require('lodash')
 const fs = require('fs')
 const path = require('path')
@@ -12,7 +11,7 @@ const path = require('path')
 const CLIENT_FINGERPRINT = process.argv[2]
 if (!CLIENT_FINGERPRINT) throw new Error('please supply a fingerprint as first argument')
 
-const link = new Base.Link({
+const link = new Link({
   grape: 'ws://127.0.0.1:30001'
 })
 link.start()
@@ -30,7 +29,7 @@ const opts = {
     }
   }
 }
-const peer = new Peer(
+const peer = new PeerRPCServer(
   link,
   opts
 )
