@@ -15,9 +15,9 @@ const link = new Base.Link({
 link.start()
 
 const secure = {
-  key: fs.readFileSync(path.join(__dirname, 'client1-key.pem')),
-  cert: fs.readFileSync(path.join(__dirname, 'client1-crt.pem')),
-  ca: fs.readFileSync(path.join(__dirname, 'ca-crt.pem')),
+  key: fs.readFileSync(path.join(__dirname, 'certs', 'client1-key.pem')),
+  cert: fs.readFileSync(path.join(__dirname, 'certs', 'client1-crt.pem')),
+  ca: fs.readFileSync(path.join(__dirname, 'certs', 'ca-crt.pem')),
   rejectUnauthorized: false // take care, can be dangerous in production!
 }
 
