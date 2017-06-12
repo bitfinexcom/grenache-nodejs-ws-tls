@@ -9,7 +9,7 @@ const fs = require('fs')
 const path = require('path')
 
 const link = new Link({
-  grape: 'ws://127.0.0.1:30001'
+  grape: 'http://127.0.0.1:30001'
 })
 
 link.start()
@@ -28,13 +28,11 @@ const peer = new PeerRPCClient(
 
 peer.init()
 
-link.on('connect', () => {
-  peer.request('rpc_whitelist_service', { action: 'ping' }, { timeout: 10000 }, (err, data) => {
-    console.log(err, data) // logs: null 'ping action is allowed for this client'
-  })
+peer.request('rpc_whitelist_service', { action: 'ping' }, { timeout: 10000 }, (err, data) => {
+  console.log(err, data) // logs: null 'ping action is allowed for this client'
+})
 
-  // errors with forbidden error
-  peer.request('rpc_whitelist_service', { action: 'deleteHarddisk' }, { timeout: 10000 }, (err, data) => {
-    console.log(err, data) // logs: Error: forbidden
-  })
+// errors with forbidden error
+peer.request('rpc_whitelist_service', { action: 'deleteHarddisk' }, { timeout: 10000 }, (err, data) => {
+  console.log(err, data) // logs: Error: forbidden
 })

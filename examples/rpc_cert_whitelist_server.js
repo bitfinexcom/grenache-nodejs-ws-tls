@@ -15,7 +15,7 @@ const fs = require('fs')
 const path = require('path')
 
 const link = new Link({
-  grape: 'ws://127.0.0.1:30001'
+  grape: 'http://127.0.0.1:30001'
 })
 link.start()
 

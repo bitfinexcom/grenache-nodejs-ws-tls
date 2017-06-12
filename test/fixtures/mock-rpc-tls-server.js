@@ -1,6 +1,3 @@
-// make sure you start grenache-grape:
-// grape --dp 20001 --apw 30001 --aph 40001 --bn "127.0.0.1:20002,127.0.0.1:20003"
-
 'use strict'
 
 const { PeerRPCServer, Link } = require('../../')
@@ -12,7 +9,7 @@ const CLIENT_FINGERPRINT = process.argv[2]
 if (!CLIENT_FINGERPRINT) throw new Error('please supply a fingerprint as first argument')
 
 const link = new Link({
-  grape: 'ws://127.0.0.1:30001'
+  grape: 'http://127.0.0.1:30001'
 })
 link.start()
 
