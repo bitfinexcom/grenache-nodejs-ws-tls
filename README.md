@@ -45,7 +45,7 @@ the request is done as Peer-to-Peer request via Websockets.
 
 ```js
 const link = new Link({
-  grape: 'ws://127.0.0.1:30001'
+  grape: 'http://127.0.0.1:30001'
 })
 link.start()
 
@@ -128,7 +128,7 @@ service.on('request', (rid, key, payload, handler, cert) => {
 
 ```js
 const link = new Link({
-  grape: 'ws://127.0.0.1:30001'
+  grape: 'http://127.0.0.1:30001'
 })
 
 link.start()
@@ -171,7 +171,7 @@ link.on('connect', () => {
 #### new Link(options)
 
  - `options` &lt;Object&gt; Options for the link
-    - `grape` &lt;String&gt; Address of the Grenache Grape instance. Communication is done via Websocket or HTTP.
+    - `grape` &lt;String&gt; Address of the Grenache Grape instance. Communication is done via HTTP.
     - `requestTimeout` &lt;Number&gt; Default timeout for requests to Grape,
     - `pingTimeout` &lt;Number&gt; Ping connection timeout to Grape (triggers reconnect attempt),
     - `lruMaxSizeLookup` &lt;Number&gt; Maximum size of the cache,
@@ -179,13 +179,6 @@ link.on('connect', () => {
         in the cache
     - `lruMaxAgeLookup` &lt;Number&gt; Maximum cache age in ms.
 
-#### Event: 'connect'
-
-Emitted when the link connected to Grape.
-
-#### Event 'disconnect'
-
-Emitted when the link disconnected from Grape.
 
 #### link.start()
 
