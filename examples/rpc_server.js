@@ -4,7 +4,8 @@
 
 'use strict'
 
-const { PeerRPCServer, Link } = require('../')
+const { PeerRPCServer } = require('../')
+const Link = require('grenache-nodejs-link')
 const fs = require('fs')
 const path = require('path')
 
