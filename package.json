@@ -4,9 +4,8 @@
   "description": "Grenache Node.js TLS websockets",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint && npm run unit",
-    "lint": "standard",
-    "unit": "mocha -R spec"
+    "test": "npm run lint",
+    "lint": "standard"
   },
   "repository": {
     "type": "git",
@@ -17,7 +16,7 @@
     "DHT"
   ],
   "author": "Robert Kowalski <rok@kowalski.gd>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "grenache-nodejs-base": "^0.7.0",
     "grenache-nodejs-link": "^0.7.3",
