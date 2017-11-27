@@ -310,6 +310,7 @@ Maps a number of requests over the amount of registered workers / PeerRPCServers
   - `payload` &lt;String&gt; Payload to send
   - `options` &lt;Object&gt; Options for the request
     - `timeout` &lt;Number&gt; timeout in ms
+    - `retry` &lt;Number&gt; attempts to make before giving up. default is 1
   - `callback` &lt;Function&gt;
 
 Sends a single request to a RPC server/worker.
