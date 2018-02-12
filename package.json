@@ -1,6 +1,6 @@
 {
   "name": "grenache-nodejs-ws-tls",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "description": "Grenache Node.js TLS websockets",
   "main": "index.js",
   "scripts": {
@@ -18,11 +18,11 @@
   "author": "Robert Kowalski <rok@kowalski.gd>",
   "license": "Apache-2.0",
   "dependencies": {
-    "grenache-nodejs-base": "^0.7.0",
-    "grenache-nodejs-link": "^0.7.3",
-    "grenache-nodejs-ws": "^0.7.2",
+    "grenache-nodejs-base": "^0.7.1",
+    "grenache-nodejs-link": "^0.7.6",
+    "grenache-nodejs-ws": "^0.7.4",
     "lodash": "^4.17.4",
-    "ws": "^3.0.0"
+    "ws": "^4.0.0"
   },
   "devDependencies": {
     "async": "^2.4.1",
