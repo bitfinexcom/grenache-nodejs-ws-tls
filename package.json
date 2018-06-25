@@ -1,6 +1,6 @@
 {
   "name": "grenache-nodejs-ws-tls",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "description": "Grenache Node.js TLS websockets",
   "main": "index.js",
   "scripts": {
