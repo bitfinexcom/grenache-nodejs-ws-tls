@@ -2,6 +2,9 @@
 
 <img src="logo.png" width="15%" />
 
+
+## deprecated! grenache-nodejs-ws-tls is part of [grenache-nodejs-ws](https://github.com/bitfinexcom/grenache-nodejs-ws) now.
+
 [grenache-nodejs-ws](https://github.com/bitfinexcom/grenache-nodejs-ws) with TLS support and optional payload validation based on client certificate.
 
 Grenache is a micro-framework for connecting microservices. Its simple and optimized for performance.
